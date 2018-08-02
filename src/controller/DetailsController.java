@@ -1,5 +1,6 @@
 package controller;
 
+import controller.Main.OnChangeScreen;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
@@ -10,17 +11,20 @@ import javafx.fxml.FXML;
 public class DetailsController{
     
     @FXML
-    protected void inicialize(){
-        Main.addOnChangeScreenListener(new Main.OnChangeScreen() {
+    protected void initialize(){
+        Main.addOnChangeScreenListener(new OnChangeScreen(){;
             @Override
             public void onScreenChanged(String newScreen, Object userData) {
-                System.out.println("Nova Tela"+ newScreen+","+ userData);
+                
+                //certificar de que a tela nova é a que eu t trabalhando
+                if(newScreen.equals("details")){
+                    System.out.println("Nova Tela: "+ newScreen+" ,"+ userData);
+                }
             }
         });
     }
     @FXML
     protected void btnVoltar(ActionEvent e) {
-        System.out.println("voltou");
         Main.changeScreen("main");
     }  
 }

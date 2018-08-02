@@ -15,7 +15,6 @@ import javafx.fxml.FXML;
 public class MainController{
     @FXML
     protected void btNovoAction(ActionEvent e) {
-        System.out.println("bt novo");
-        Main.changeScreen("details");
+        Main.changeScreen("details", "dados para a tela detalhes");
     }   
 }

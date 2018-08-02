@@ -44,32 +44,41 @@ public class Main extends Application {
     //método para trocar de tela
     public static void changeScreen(String scr, Object userData){
         switch (scr){
-            case "main":
-            stage.setScene(mainScene);
+            case "main":            
+                stage.setScene(mainScene);
                 notifyAllListeners("main", userData);
-            break;
+                break;
             case "details":
-            stage.setScene(detailsScene);
+                stage.setScene(detailsScene);
                 notifyAllListeners("details", userData);
-            break;
         }
-        
     }
-    
-    
-    
+    //criando uma sobrecarga para o método
+    public static void changeScreen(String scr){
+        changeScreen(scr, null);
+    }
     
     public static void main(String[] args) {
         launch(args);
     }
     //-----------------------------------------------
+    
     private static ArrayList<OnChangeScreen> listeners = new ArrayList<>();//array lista mostra os listados
 
+    /**
+     *Cria um evento em que todas as decisões ds botões serão listados
+     */
     public static interface OnChangeScreen{//evento  (OnChangeScreen são os listados)
         void onScreenChanged(String newScreen, Object userData);//evento
     }
     
 //forma de cadastrar os listeners
+
+    /**
+     *
+     * @param newListener
+     * 
+     */
     public static void addOnChangeScreenListener(OnChangeScreen newListener ){
         listeners.add(newListener);
     }

@@ -15,7 +15,7 @@
       <ToolBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <items>
             <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="49.0" text="OK" />
-          <Button mnemonicParsing="false" onAction="#btnVoltar" prefHeight="26.0" prefWidth="105.0" text="Cancelar" />
+          <Button mnemonicParsing="false" onAction="#btnVoltar" prefHeight="26.0" prefWidth="105.0" text="Voltar" />
         </items>
       </ToolBar>
    </bottom>
@@ -33,8 +33,8 @@
          <children>
             <Label text="Plataforma" GridPane.rowIndex="1" />
             <Label text="Nome" GridPane.rowIndex="2" />
-            <Label text="Genero" />
-            <TextField fx:id="tfGenero" prefWidth="389.0" GridPane.columnIndex="1" />
+            <Label fx:id="tfId" text="ID" />
+            <TextField fx:id="tfId" prefWidth="389.0" GridPane.columnIndex="1" />
             <TextField fx:id="tfPlataforma" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="tfNome" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
