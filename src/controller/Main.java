@@ -5,6 +5,7 @@
  */
 package controller;
 
+import java.util.ArrayList;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -41,24 +42,48 @@ public class Main extends Application {
         primaryStage.show();
     }
     //método para trocar de tela
-    public static void changeScreen(String scr){
+    public static void changeScreen(String scr, Object userData){
         switch (scr){
             case "main":
             stage.setScene(mainScene);
+                notifyAllListeners("main", userData);
             break;
             case "details":
             stage.setScene(detailsScene);
+                notifyAllListeners("details", userData);
             break;
         }
         
     }
-
     
-    /**
-     * @param args the command line arguments
-     */
+    
+    
+    
     public static void main(String[] args) {
         launch(args);
     }
+    //-----------------------------------------------
+    private static ArrayList<OnChangeScreen> listeners = new ArrayList<>();//array lista mostra os listados
+
+    public static interface OnChangeScreen{//evento  (OnChangeScreen são os listados)
+        void onScreenChanged(String newScreen, Object userData);//evento
+    }
     
+//forma de cadastrar os listeners
+    public static void addOnChangeScreenListener(OnChangeScreen newListener ){
+        listeners.add(newListener);
+    }
+    
+    private static void notifyAllListeners(String newScreen, Object userData){
+        for(OnChangeScreen l : listeners)
+            l.onScreenChanged(newScreen, userData);
+    }
 }
+
+
+
+
+
+
+
+
