@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import model.Jogo;
 
 /**
  *
@@ -27,7 +28,16 @@ public class Main extends Application {
     
     @Override
     public void start(Stage primaryStage) throws Exception {
+        Jogo j = new Jogo("Plastation 2","Mortal Combat X");
+        System.out.println(j);
+        
+        
+        System.exit(0);//encerra o projeto quando terminar os testes
+        
+        
+       
         stage = primaryStage;
+        
         primaryStage.setTitle("Exemplo dessa porra");
         
 //carregamento dos FXML separados
